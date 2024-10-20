@@ -7,8 +7,13 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/profileFragment"
+        android:name="com.example.locationsharingapp.ProfileFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:layout="@layout/fragment_profile"
+        android:label="Profile"
         android:text="@string/hello_blank_fragment" />
+
 
 </FrameLayout>

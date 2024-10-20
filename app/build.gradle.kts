@@ -54,9 +54,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     val nav_version = "2.8.2"
-
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 }
 

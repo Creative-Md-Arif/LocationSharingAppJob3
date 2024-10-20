@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/friendsFragment2">
+    app:startDestination="@id/friendsFragment">
 
     <fragment
-        android:id="@+id/friendsFragment2"
+        android:id="@+id/friendsFragment"
         android:name="com.example.locationsharingapp.FriendsFragment"
-        android:label="fragment_friends"
-        tools:layout="@layout/fragment_friends" />
+        android:label="Friends Fragment"
+        tools:layout="@layout/fragment_friends" >
+
+    <action
+            android:id="@+id/action_friendsFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
     <fragment
-        android:id="@+id/profileFragment2"
+        android:id="@+id/profileFragment"
         android:name="com.example.locationsharingapp.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:label="Profile Fragment" />
+
 </navigation>

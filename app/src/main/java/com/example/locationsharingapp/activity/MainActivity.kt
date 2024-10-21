@@ -1,5 +1,6 @@
 package com.example.locationsharingapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -8,6 +9,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.locationsharingapp.R
 import com.example.locationsharingapp.databinding.ActivityMainBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {
@@ -37,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         binding.drawerNav.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.logout -> {
+                    Firebase.auth.signOut()
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     finish()
                     true
                 }
@@ -50,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomBar.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.logout -> {
+                   Firebase.auth.signOut()
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     finish()
                     true
                 }

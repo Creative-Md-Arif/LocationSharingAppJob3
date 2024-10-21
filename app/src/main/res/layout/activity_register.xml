@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout1">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/conPasswordEt"
+            android:id="@+id/confirmPasswordEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>

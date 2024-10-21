@@ -72,26 +72,29 @@ class AuthenticationViewModel : ViewModel() {
 
     }
 
+//    email verification check function
+
+    fun isEmailVerified(): Boolean {
+        val user = firebaseAuth.currentUser
+        return user?.isEmailVerified == true
+    }
+
 //  firebase logout function
 
 
-    fun getCurrentUserId():String{
+    fun getCurrentUserId(): String {
         return firebaseAuth.currentUser?.uid ?: ""
     }
 
-//    firebase login check function
-    fun isLoggedIn():Boolean{
+    //    firebase login check function
+    fun isLoggedIn(): Boolean {
         return firebaseAuth.currentUser != null
     }
 
-//    firebase logout function
-    fun getCurrentUser():FirebaseUser?{
+    //    firebase logout function
+    fun getCurrentUser(): FirebaseUser? {
         return firebaseAuth.currentUser
     }
-
-
-
-
 
 
 }

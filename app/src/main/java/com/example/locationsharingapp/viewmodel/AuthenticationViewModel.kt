@@ -10,8 +10,7 @@ class AuthenticationViewModel : ViewModel() {
 
     //login function
     fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful) {
                     onSuccess()
                 } else {
@@ -23,13 +22,9 @@ class AuthenticationViewModel : ViewModel() {
 
     // register function
     fun register(
-        email: String,
-        password: String,
-        onSuccess: () -> Unit,
-        onFailure: (String) -> Unit
+        email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit
     ) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful) {
                     onSuccess()
                 } else {
@@ -42,42 +37,41 @@ class AuthenticationViewModel : ViewModel() {
 
     // reset password function
 
-    fun resetPassword(email: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        firebaseAuth.sendPasswordResetEmail(email)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    onSuccess()
-                } else {
-                    onFailure(it.exception?.message ?: "Password Reset Failed")
-
-                }
-            }
-    }
+//    fun resetPassword(email: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+//        firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
+//                if (it.isSuccessful) {
+//                    onSuccess()
+//                } else {
+//                    onFailure(it.exception?.message ?: "Password Reset Failed")
+//
+//                }
+//            }
+//    }
 
 // email verification function
 
-    fun emailVerification(onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        val user = firebaseAuth.currentUser
-        user?.sendEmailVerification()
-
-            ?.addOnCompleteListener {
-                if (it.isSuccessful) {
-                    onSuccess()
-                } else {
-                    onFailure(it.exception?.message ?: "Email Verification Failed")
-
-                }
-
-            }
-
-    }
+//    fun emailVerification(onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+//        val user = firebaseAuth.currentUser
+//        user?.sendEmailVerification()
+//
+//            ?.addOnCompleteListener {
+//                if (it.isSuccessful) {
+//                    onSuccess()
+//                } else {
+//                    onFailure(it.exception?.message ?: "Email Verification Failed")
+//
+//                }
+//
+//            }
+//
+//    }
 
 //    email verification check function
 
-    fun isEmailVerified(): Boolean {
-        val user = firebaseAuth.currentUser
-        return user?.isEmailVerified == true
-    }
+//    fun isEmailVerified(): Boolean {
+//        val user = firebaseAuth.currentUser
+//        return user?.isEmailVerified == true
+//    }
 
 //  firebase logout function
 

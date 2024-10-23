@@ -22,13 +22,15 @@ class LocationViewModel:ViewModel() {
                     val longitude = lastLocation.longitude
                     val location = "Lat: $latitude, Long: $longitude"
                     callback(location)
+
+
+
                 } else {
-                    // Handle failure or missing permissions
+
                     callback("Location not available")
                 }
             })
     }
-
 
 
     fun initializeFusedLocationClient(client: FusedLocationProviderClient) {

@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.locationsharingapp.databinding.ActivityRegisterBinding
 import com.example.locationsharingapp.viewmodel.AuthenticationViewModel
-import com.example.locationsharingapp.viewmodel.FIreStoreViewModel
+import com.example.locationsharingapp.viewmodel.FireStoreViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var authenticationViewModel: AuthenticationViewModel
-    private lateinit var fIreStoreViewModel: FIreStoreViewModel
+    private lateinit var fireStoreViewModel: FireStoreViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         authenticationViewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
-        fIreStoreViewModel = ViewModelProvider(this).get(FIreStoreViewModel::class.java)
+        fireStoreViewModel = ViewModelProvider(this).get(FireStoreViewModel::class.java)
 
 
         binding.registerBtn.setOnClickListener {
@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
                 authenticationViewModel.register(email, password, {
-                    fIreStoreViewModel.saveUser( this, authenticationViewModel.getCurrentUserId(), username, email,location)
+                    fireStoreViewModel.saveUser( this, authenticationViewModel.getCurrentUserId(), username, email,location)
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }, {

@@ -37,33 +37,45 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.drawerNav.setNavigationItemSelectedListener {
-            when (it.itemId) {
+        binding.drawerNav.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.logout -> {
                     Firebase.auth.signOut()
                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     finish()
                     true
                 }
-                else -> {
+                R.id.friendsFragment -> {
+                    navController.navigate(R.id.friendsFragment)
+                    binding.drawerlayout.closeDrawers() // Close drawer after selection
                     true
                 }
-
+                R.id.profileFragment -> {
+                    navController.navigate(R.id.profileFragment)
+                    binding.drawerlayout.closeDrawers() // Close drawer after selection
+                    true
+                }
+                else -> true
             }
         }
 
-        binding.bottomBar.setOnItemSelectedListener {
-            when (it.itemId) {
+        binding.bottomBar.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.logout -> {
-                   Firebase.auth.signOut()
+                    Firebase.auth.signOut()
                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     finish()
                     true
                 }
-                else -> {
+                R.id.friendsFragment -> {
+                    navController.navigate(R.id.friendsFragment)
                     true
                 }
-
+                R.id.profileFragment -> {
+                    navController.navigate(R.id.profileFragment)
+                    true
+                }
+                else -> true
             }
         }
 
